@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المعمل الافتراضي المنزلي | كيف نحافظ على اليابسة والماء والهواء في الأرض؟</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Tajawal & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Tajawal', 'sans-serif'],
+            amiri: ['Amiri', 'serif'],
+          },
+          colors: {
+            eco: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            },
+            skyclean: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #ecfdf5 55%, #d1fae5 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .basmalah-font {
+      font-family: 'Amiri', serif;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes spinSlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -20; }
+    }
+
+    .animate-float { animation: floatSlow 4s ease-in-out infinite; }
+    .animate-float-delay { animation: floatSlow 5s ease-in-out 1.5s infinite; }
+    .animate-spin-slow { animation: spinSlow 20s linear infinite; }
+    .animate-pop { animation: popIn 0.3s ease-out forwards; }
+    .energy-flow {
+      stroke-dasharray: 6 4;
+      animation: dashFlow 0.8s linear infinite;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .interactive-card {
+      touch-action: manipulation;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .interactive-card:active {
+      transform: scale(0.97);
+    }
+
+    .pipe-tile {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
+    }
+
+    @media print {
+      body * { visibility: hidden; }
+      #printable-certificate, #printable-certificate * { visibility: visible; }
+      #printable-certificate {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        box-shadow: none !important;
+        border: 4px double #059669 !important;
+      }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-eco-200 selection:text-eco-700">
+
+  <!-- Toast Notification Banner -->
+  <div id="toast-box" role="alert" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-3 px-5 py-3 rounded-2xl shadow-2xl border text-xs sm:text-sm font-extrabold transition-all duration-300 max-w-[92vw]">
+    <span id="toast-icon" class="text-xl flex-shrink-0">🌟</span>
+    <span id="toast-msg"></span>
+  </div>
+
+  <!-- Main Wrapper -->
+  <div class="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-7">
+
+    <!-- =====================================================================
+         1. الهوية البصرية والترويسة (HEADER & GAMIFICATION HUD)
+    ====================================================================== -->
+    <header class="relative overflow-hidden rounded-3xl bg-gradient-to-bl from-skyclean-100 via-white to-eco-100 border-2 border-eco-300/80 shadow-lg p-5 sm:p-7 mb-5">
+      <!-- Decorative SVG Sun, Clouds, Leaves -->
+      <div class="pointer-events-none select-none">
+        <svg class="w-20 h-20 sm:w-28 sm:h-28 absolute -top-4 -right-4 opacity-90" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="24" fill="#FDE047" />
+          <circle cx="50" cy="50" r="18" fill="#FACC15" />
+          <g stroke="#FBBF24" stroke-width="3" stroke-linecap="round">
+            <line x1="50" y1="8" x2="50" y2="18" />
+            <line x1="50" y1="82" x2="50" y2="92" />
+            <line x1="8" y1="50" x2="18" y2="50" />
+            <line x1="82" y1="50" x2="92" y2="50" />
+            <line x1="20" y1="20" x2="27" y2="27" />
+            <line x1="73" y1="73" x2="80" y2="80" />
+            <line x1="80" y1="20" x2="73" y2="27" />
+            <line x1="27" y1="73" x2="20" y2="80" />
+          </g>
+        </svg>
+
+        <svg class="w-28 h-16 sm:w-36 sm:h-20 absolute top-3 left-3 text-white animate-float opacity-95" viewBox="0 0 140 80" fill="currentColor">
+          <path d="M35 65h72a20 20 0 0 0 3-39.8A28 28 0 0 0 56 20a22 22 0 0 0-21 45z" />
+        </svg>
+
+        <svg class="w-24 h-14 hidden sm:block absolute top-14 right-24 text-white/85 animate-float-delay" viewBox="0 0 140 80" fill="currentColor">
+          <path d="M35 65h72a20 20 0 0 0 3-39.8A28 28 0 0 0 56 20a22 22 0 0 0-21 45z" />
+        </svg>
+
+        <svg class="w-24 h-24 absolute -bottom-5 -left-4 text-eco-400/35 rotate-12" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M15 85 C15 35, 65 15, 90 15 C90 55, 65 85, 15 85 Z" />
+        </svg>
+        <svg class="w-20 h-20 absolute -bottom-4 right-6 text-eco-500/25 -rotate-12" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M85 85 C85 35, 35 15, 10 15 C10 55, 35 85, 85 85 Z" />
+        </svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col items-center text-center">
+        <!-- Basmalah -->
+        <div class="inline-flex items-center gap-3 px-6 py-1.5 rounded-full bg-white/90 border border-eco-200 shadow-xs mb-3">
+          <i class="fa-solid fa-leaf text-eco-500 text-sm"></i>
+          <span class="basmalah-font text-2xl sm:text-3xl text-eco-700">﷽</span>
+          <i class="fa-solid fa-seedling text-eco-500 text-sm"></i>
+        </div>
+
+        <!-- Editable School Name & Partnership Slogan -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-3">
+          <div class="inline-flex items-center gap-2 bg-skyclean-500/10 text-skyclean-700 border border-skyclean-300 px-3.5 py-1 rounded-full text-xs sm:text-sm font-bold">
+            <i class="fa-solid fa-school"></i>
+            <span id="school-name-display" contenteditable="true" aria-label="اسم المدرسة قابل للتعديل" class="outline-none focus:bg-white focus:px-2 rounded">المدرسة الابتدائية السابعة والأربعون</span>
+            <i class="fa-solid fa-pen text-[10px] opacity-60" title="انقري لتعديل اسم المدرسة"></i>
+          </div>
+          <span class="inline-flex items-center gap-2 bg-eco-500/15 text-eco-700 border border-eco-400/60 px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold">
+            <i class="fa-solid fa-people-roof text-eco-600"></i>
+            شركاء التعلم: أسرتي تسأل.. والصف يفكر
+          </span>
+        </div>
+
+        <!-- Title -->
+        <div class="inline-block bg-gradient-to-l from-eco-600 to-skyclean-600 text-white text-xs sm:text-sm font-bold px-4 py-1 rounded-full mb-2 shadow-xs">
+          المعمل الافتراضي المنزلي • العلوم • الصف السادس الابتدائي (الفصل الدراسي الأول)
+        </div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 leading-snug mb-2">
+          كيف نحافظ على <span class="text-eco-600">اليابسة</span> و<span class="text-skyclean-600">الماء</span> و<span class="text-teal-600">الهواء</span> في الأرض؟
+        </h1>
+        <p class="max-w-2xl text-slate-600 text-xs sm:text-base leading-relaxed mb-4">
+          مرحباً بكِ يا عالمة المستقبل! استكشفي مع أسرتكِ أسرار الطاقة النظيفة وتنقية المياه وحماية بيئة وطننا الغالي عبر 6 محطات تفاعلية.
+        </p>
+
+        <!-- HUD: Green Points, Progress Bar & 5 Badges -->
+        <div class="w-full max-w-3xl bg-white/95 rounded-2xl p-3.5 border border-skyclean-200 shadow-sm">
+          <div class="flex flex-wrap justify-between items-center gap-2 text-xs sm:text-sm font-bold mb-2">
+            <span class="text-slate-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-chart-line text-skyclean-600"></i>
+              تقدّم الاستكشاف: <strong id="progress-text" class="text-eco-700">0% (0 / 6)</strong>
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-eco-100 text-eco-800 px-3 py-1 rounded-full text-xs sm:text-sm font-black border border-eco-300">
+              <i class="fa-solid fa-leaf text-eco-600"></i>
+              نقاط البصمة الخضراء: <span id="green-points">0</span>
+            </span>
+          </div>
+
+          <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
+            <div id="progress-bar" class="h-full bg-gradient-to-l from-eco-500 to-skyclean-500 rounded-full transition-all duration-500" style="width: 0%;"></div>
+          </div>
+
+          <!-- 5 Achievement Badges -->
+          <div class="flex flex-wrap items-center justify-center gap-1.5 pt-2 border-t border-slate-100 text-[11px] sm:text-xs font-bold">
+            <span id="badge-solar" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-400 transition-all">☀️ رائدة الطاقة</span>
+            <span id="badge-guardian" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-400 transition-all">🛡️ حارسة البيئة</span>
+            <span id="badge-grid" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-400 transition-all">⚡ مهندسة الشبكة</span>
+            <span id="badge-map" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-400 transition-all">🗺️ مصممة الخريطة</span>
+            <span id="badge-compare" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-400 transition-all">🔬 عالمة المقارنة</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =====================================================================
+         شريط التنقل بين المحطات الست (STICKY STATION TABS)
+    ====================================================================== -->
+    <nav aria-label="محطات المعمل الافتراضي" class="sticky top-2 z-30 bg-white/95 backdrop-blur-md border border-eco-200 rounded-2xl shadow-md p-2 mb-6">
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar" id="station-nav-list">
+        <button type="button" data-station="1" class="station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-gradient-to-l from-eco-500 to-skyclean-500 text-white shadow-sm">
+          <i class="fa-solid fa-solar-panel"></i>
+          <span>1. الشرح والمحاكاة</span>
+          <i id="check-1" class="fa-solid fa-circle-check hidden text-amber-200"></i>
+        </button>
+
+        <button type="button" data-station="2" class="station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-slate-50 text-slate-700 hover:bg-eco-50">
+          <i class="fa-solid fa-gamepad text-eco-600"></i>
+          <span>2. الألعاب التفاعلية</span>
+          <i id="check-2" class="fa-solid fa-circle-check hidden text-eco-600"></i>
+        </button>
+
+        <button type="button" data-station="3" class="station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-slate-50 text-slate-700 hover:bg-skyclean-50">
+          <i class="fa-solid fa-lightbulb text-amber-500"></i>
+          <span>3. الأسئلة والتحدي</span>
+          <i id="check-3" class="fa-solid fa-circle-check hidden text-eco-600"></i>
+        </button>
+
+        <button type="button" data-station="4" class="station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-slate-50 text-slate-700 hover:bg-eco-50">
+          <i class="fa-solid fa-tree text-eco-600"></i>
+          <span>4. السعودية الخضراء 2030</span>
+          <i id="check-4" class="fa-solid fa-circle-check hidden text-eco-600"></i>
+        </button>
+
+        <button type="button" data-station="5" class="station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-slate-50 text-slate-700 hover:bg-skyclean-50">
+          <i class="fa-solid fa-brain text-skyclean-600"></i>
+          <span>5. أنماط التعلم والتمايز</span>
+          <i id="check-5" class="fa-solid fa-circle-check hidden text-eco-600"></i>
+        </button>
+
+        <button type="button" data-station="6" class="station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-slate-50 text-slate-700 hover:bg-amber-50">
+          <i class="fa-solid fa-certificate text-amber-500"></i>
+          <span>6. شهادة الإنجاز</span>
+          <i id="check-6" class="fa-solid fa-circle-check hidden text-eco-600"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =====================================================================
+         المحطة 1: الشرح البصري المبسط ومحاكاة الطاقة والمياه
+    ====================================================================== -->
+    <section id="station-1" class="station-panel animate-pop space-y-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-skyclean-200 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-skyclean-100 text-skyclean-600 flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800">المحطة 1: الشرح البصري ومختبر المحاكاة</h2>
+              <p class="text-xs sm:text-sm text-slate-500">استكشفي الطاقة البديلة وتنقية المياه في منهج العلوم</p>
+            </div>
+          </div>
+          <button type="button" data-complete="1" data-next="2" class="complete-station-btn px-4 py-2.5 rounded-xl bg-eco-600 hover:bg-eco-700 text-white text-xs sm:text-sm font-bold shadow transition flex items-center gap-2">
+            <span>أتممتُ المحطة 1 • انتقلي للألعاب</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+
+        <!-- 1A: Solar Simulator -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-gradient-to-br from-skyclean-50 to-eco-50 rounded-2xl p-5 border border-skyclean-200 mb-6">
+          <div class="lg:col-span-7 space-y-3">
+            <span class="inline-block bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-full">
+              <i class="fa-solid fa-bolt ml-1"></i> الطاقة المتجددة في المملكة العربية السعودية
+            </span>
+            <h3 class="text-lg sm:text-xl font-extrabold text-slate-800">محطات الطاقة الشمسية (K.A.CARE ونيوم)</h3>
+            <p class="text-slate-700 text-xs sm:text-base leading-relaxed">
+              تتمتع المملكة بسطوع شمسي عالٍ طوال العام؛ لذا تقود <strong>مدينة الملك عبدالله للطاقة الذرية والمتجددة (K.A.CARE)</strong> ومشاريع <strong>نيوم</strong> وسكاكا التحول نحو الطاقة الشمسية النظيفة، حيث تحوّل الخلايا الشمسية ضوء الشمس مباشرة إلى كهرباء دون أي تلوث.
+            </p>
+
+            <!-- Interactive Solar Controls -->
+            <div class="bg-white/90 p-3.5 rounded-2xl border border-skyclean-200 space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <button type="button" id="btn-toggle-solar" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold text-xs sm:text-sm shadow-xs transition flex items-center gap-2">
+                  <i class="fa-solid fa-sun"></i>
+                  <span id="solar-btn-label">تشغيل أشعة الشمس</span>
+                </button>
+                <span class="text-xs sm:text-sm font-extrabold text-skyclean-700">
+                  الإنتاج الكهربائي: <span id="solar-watts">0</span> ميجاواط
+                </span>
+              </div>
+
+              <div>
+                <label for="solar-intensity" class="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                  <span>شدة الإشعاع الشمسي (حرّكي المؤشر):</span>
+                  <span id="solar-pct-label">0%</span>
+                </label>
+                <input id="solar-intensity" type="range" min="0" max="100" value="0" class="w-full accent-amber-500 cursor-pointer" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Solar SVG Canvas -->
+          <div class="lg:col-span-5 bg-white rounded-2xl p-4 border border-skyclean-200 shadow-inner flex flex-col items-center">
+            <svg class="w-full max-w-xs h-48" viewBox="0 0 300 180">
+              <rect id="solar-sky" x="0" y="0" width="300" height="140" rx="14" fill="#0F172A" class="transition-colors duration-500" />
+              <rect x="0" y="135" width="300" height="45" rx="10" fill="#10B981" />
+              <!-- Sun -->
+              <circle id="solar-sun-orb" cx="55" cy="42" r="20" fill="#475569" class="transition-colors duration-300" />
+              <!-- Sun Rays -->
+              <g id="solar-rays-group" opacity="0" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 4">
+                <line x1="78" y1="55" x2="135" y2="95" />
+                <line x1="65" y1="68" x2="115" y2="110" />
+                <line x1="85" y1="42" x2="155" y2="85" />
+              </g>
+              <!-- Solar Panel -->
+              <rect x="138" y="115" width="10" height="30" fill="#64748B" />
+              <polygon points="95,115 175,75 195,90 115,130" fill="#0284C7" stroke="#0369A1" stroke-width="2" />
+              <!-- Power Line -->
+              <path id="solar-power-line" d="M 148 135 L 235 135 L 235 115" fill="none" stroke="#94A3B8" stroke-width="4" />
+              <!-- City Building -->
+              <rect x="208" y="75" width="60" height="60" rx="5" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" />
+              <polygon points="203,75 238,50 273,75" fill="#059669" />
+              <rect id="city-win-a" x="220" y="88" width="14" height="14" rx="2" fill="#94A3B8" />
+              <rect id="city-win-b" x="242" y="88" width="14" height="14" rx="2" fill="#94A3B8" />
+              <rect id="city-win-c" x="220" y="108" width="14" height="14" rx="2" fill="#94A3B8" />
+              <rect id="city-win-d" x="242" y="108" width="14" height="14" rx="2" fill="#94A3B8" />
+            </svg>
+            <p id="solar-feedback" class="text-xs font-bold text-slate-600 text-center mt-2">
+              شغّلي الشمس أو ارفعي شدة الإشعاع لإضاءة المدينة!
+            </p>
+          </div>
+        </div>
+
+        <!-- 1B: Interactive Alternative Energy Cards -->
+        <h3 class="text-base sm:text-lg font-extrabold text-slate-800 mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-leaf text-eco-600"></i>
+          مصادر الطاقة البديلة (انقري على كل بطاقة لاكتشاف مثال واقعي):
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8">
+          <button type="button" data-energy-info="solar" class="energy-info-card interactive-card text-right rounded-2xl bg-amber-50/80 border-2 border-amber-200 hover:border-amber-400 p-4 shadow-2xs">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg mb-2">
+              <i class="fa-solid fa-sun"></i>
+            </div>
+            <h4 class="font-extrabold text-sm text-slate-800 mb-1">1. الطاقة الشمسية</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">تحويل ضوء الشمس إلى كهرباء عبر الألواح الضوئية.</p>
+            <div id="info-detail-solar" class="hidden mt-2 pt-2 border-t border-amber-200 text-[11px] font-bold text-amber-900">
+              مثال واقعي: محطة سكاكا للطاقة الشمسية في شمال المملكة تُضيء آلاف المنازل!
+            </div>
+          </button>
+
+          <button type="button" data-energy-info="geo" class="energy-info-card interactive-card text-right rounded-2xl bg-orange-50/80 border-2 border-orange-200 hover:border-orange-400 p-4 shadow-2xs">
+            <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-lg mb-2">
+              <i class="fa-solid fa-volcano"></i>
+            </div>
+            <h4 class="font-extrabold text-sm text-slate-800 mb-1">2. الحرارية الجوفية</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">استغلال الحرارة والبخار الخارج من باطن الأرض.</p>
+            <div id="info-detail-geo" class="hidden mt-2 pt-2 border-t border-orange-200 text-[11px] font-bold text-orange-900">
+              مثال واقعي: دولة إيسلندا تُدفّئ 90% من منازلها وتولّد الكهرباء من بخار باطن الأرض!
+            </div>
+          </button>
+
+          <button type="button" data-energy-info="bio" class="energy-info-card interactive-card text-right rounded-2xl bg-eco-50/80 border-2 border-eco-200 hover:border-eco-400 p-4 shadow-2xs">
+            <div class="w-10 h-10 rounded-xl bg-eco-100 text-eco-600 flex items-center justify-center text-lg mb-2">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h4 class="font-extrabold text-sm text-slate-800 mb-1">3. الكتلة الحيوية</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">معالجة بقايا النباتات والنفايات العضوية وتحويلها لوقود.</p>
+            <div id="info-detail-bio" class="hidden mt-2 pt-2 border-t border-eco-200 text-[11px] font-bold text-eco-900">
+              مثال واقعي: تحويل مخلفات المزارع وقشور الفواكه إلى غاز حيوي لتوليد الكهرباء!
+            </div>
+          </button>
+
+          <button type="button" data-energy-info="hydro" class="energy-info-card interactive-card text-right rounded-2xl bg-skyclean-50/80 border-2 border-skyclean-200 hover:border-skyclean-400 p-4 shadow-2xs">
+            <div class="w-10 h-10 rounded-xl bg-skyclean-100 text-skyclean-600 flex items-center justify-center text-lg mb-2">
+              <i class="fa-solid fa-water"></i>
+            </div>
+            <h4 class="font-extrabold text-sm text-slate-800 mb-1">4. طاقة السدود</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">استثمار قوة اندفاع المياه من السدود لتدوير التوربينات.</p>
+            <div id="info-detail-hydro" class="hidden mt-2 pt-2 border-t border-skyclean-200 text-[11px] font-bold text-skyclean-900">
+              مثال واقعي: تدفق الماء السريع يُدير المولدات الكهربائية دون حرق أي وقود!
+            </div>
+          </button>
+        </div>
+
+        <!-- 1C: 4-Stage Interactive Water Purification Lab -->
+        <div class="rounded-2xl bg-skyclean-50/90 border-2 border-skyclean-200 p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <h3 class="text-base sm:text-lg font-extrabold text-skyclean-800 flex items-center gap-2">
+                <i class="fa-solid fa-faucet-drip"></i>
+                مختبر تنقية المياه التفاعلي (4 مراحل)
+              </h3>
+              <p class="text-xs text-slate-600">اضغطي على المراحل بالترتيب (1 ثم 2 ثم 3 ثم 4) لتنقية الماء العكر ورفع نسبة النقاء إلى 100%!</p>
+            </div>
+            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-skyclean-300">
+              <span class="text-xs font-bold text-slate-600">نسبة نقاء الماء:</span>
+              <span id="water-purity-pct" class="text-base sm:text-lg font-black text-skyclean-600">0%</span>
+              <button type="button" id="btn-reset-water" class="text-xs text-rose-600 hover:underline font-bold mr-2">إعادة</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+            <!-- 4 Stage Buttons -->
+            <div class="lg:col-span-7 space-y-2.5">
+              <button type="button" data-water-stage="1" class="water-stage-btn w-full text-right p-3 rounded-xl bg-white border-2 border-skyclean-300 hover:border-skyclean-500 flex items-center justify-between transition">
+                <span class="font-extrabold text-xs sm:text-sm text-slate-800">المرحلة 1: طبقة الحصى (الترسيب)</span>
+                <span id="w-status-1" class="text-xs bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">اضغطي للتشغيل</span>
+              </button>
+              <button type="button" data-water-stage="2" class="water-stage-btn w-full text-right p-3 rounded-xl bg-white border-2 border-skyclean-200 hover:border-skyclean-500 flex items-center justify-between transition">
+                <span class="font-extrabold text-xs sm:text-sm text-slate-800">المرحلة 2: طبقة الرمل الناعم</span>
+                <span id="w-status-2" class="text-xs bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">في الانتظار</span>
+              </button>
+              <button type="button" data-water-stage="3" class="water-stage-btn w-full text-right p-3 rounded-xl bg-white border-2 border-skyclean-200 hover:border-skyclean-500 flex items-center justify-between transition">
+                <span class="font-extrabold text-xs sm:text-sm text-slate-800">المرحلة 3: الفلترة الدقيقة (الفحم المنشط)</span>
+                <span id="w-status-3" class="text-xs bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">في الانتظار</span>
+              </button>
+              <button type="button" data-water-stage="4" class="water-stage-btn w-full text-right p-3 rounded-xl bg-white border-2 border-skyclean-200 hover:border-skyclean-500 flex items-center justify-between transition">
+                <span class="font-extrabold text-xs sm:text-sm text-slate-800">المرحلة 4: التعقيم بالكلور</span>
+                <span id="w-status-4" class="text-xs bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full font-bold">في الانتظار</span>
+              </button>
+            </div>
+
+            <!-- Visual Water Beaker -->
+            <div class="lg:col-span-5 bg-white rounded-2xl p-4 border border-skyclean-200 flex flex-col items-center">
+              <div class="w-32 h-36 rounded-b-3xl border-4 border-t-0 border-slate-300 relative overflow-hidden bg-slate-50 flex items-end">
+                <div id="water-liquid-fill" class="w-full h-4/5 transition-all duration-500 flex items-center justify-center" style="background-color: #92400e;">
+                  <span id="water-impurities" class="text-lg">🍂🪨🦠</span>
+                </div>
+              </div>
+              <p id="water-stage-desc" class="mt-3 text-xs sm:text-sm font-bold text-slate-700 text-center">
+                الماء الآن عكر ويحتوي على شوائب وجراثيم. ابدئي بالمرحلة 1!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         المحطة 2: محطة الألعاب والتجارب التفاعلية
+    ====================================================================== -->
+    <section id="station-2" class="station-panel hidden animate-pop space-y-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-eco-200 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-eco-100 text-eco-600 flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800">المحطة 2: محطة الألعاب التفاعلية</h2>
+              <p class="text-xs sm:text-sm text-slate-500">تعمل باللمس والنقر المباشر أو بالسحب والإفلات</p>
+            </div>
+          </div>
+          <button type="button" data-complete="2" data-next="3" class="complete-station-btn px-4 py-2.5 rounded-xl bg-skyclean-600 hover:bg-skyclean-700 text-white text-xs sm:text-sm font-bold shadow transition flex items-center gap-2">
+            <span>أتممتُ الألعاب • انتقلي للتحدي</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+
+        <!-- GAME 1: Environment Guardian -->
+        <div class="rounded-2xl bg-gradient-to-br from-eco-50 to-skyclean-50 border-2 border-eco-200 p-5 mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <span class="bg-eco-600 text-white text-xs font-bold px-3 py-1 rounded-full">اللعبة 1</span>
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-800 mt-1">لعبة "حارس البيئة" لفرز النفايات وإعادة الاستخدام</h3>
+            </div>
+            <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-eco-200">
+              <span class="text-xs font-bold text-slate-600">النتيجة:</span>
+              <span id="guardian-score" class="text-base sm:text-lg font-black text-eco-600">0 / 6</span>
+              <button type="button" id="btn-reset-guardian" class="text-xs text-rose-600 hover:underline font-bold">إعادة</button>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 mb-4">
+            <strong>طريقة اللعب:</strong> انقري على أي عنصر من العناصر الستة (أو اسحبيه) ثم انقري على الحاوية المناسبة له:
+          </p>
+
+          <!-- Items Pool -->
+          <div id="guardian-pool" class="flex flex-wrap justify-center gap-2.5 p-4 bg-white/90 rounded-2xl border border-dashed border-eco-300 min-h-[84px] mb-5"></div>
+
+          <!-- 4 Bins -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div data-bin="plastic" class="guardian-bin interactive-card cursor-pointer rounded-2xl bg-skyclean-500/10 border-2 border-dashed border-skyclean-500 p-4 text-center hover:bg-skyclean-500/15">
+              <div class="w-11 h-11 mx-auto rounded-full bg-skyclean-500 text-white flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-bottle-water"></i>
+              </div>
+              <h4 class="font-extrabold text-skyclean-800 text-sm">تدوير البلاستيك والمعادن</h4>
+              <p class="text-[11px] text-slate-600 mt-1">قوارير وعلب معدنية</p>
+              <div id="bin-list-plastic" class="mt-2 flex flex-wrap justify-center gap-1"></div>
+            </div>
+
+            <div data-bin="paper" class="guardian-bin interactive-card cursor-pointer rounded-2xl bg-indigo-500/10 border-2 border-dashed border-indigo-500 p-4 text-center hover:bg-indigo-500/15">
+              <div class="w-11 h-11 mx-auto rounded-full bg-indigo-500 text-white flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-newspaper"></i>
+              </div>
+              <h4 class="font-extrabold text-indigo-800 text-sm">تدوير الورق والكرتون</h4>
+              <p class="text-[11px] text-slate-600 mt-1">جرائد وأوراق مستعملة</p>
+              <div id="bin-list-paper" class="mt-2 flex flex-wrap justify-center gap-1"></div>
+            </div>
+
+            <div data-bin="compost" class="guardian-bin interactive-card cursor-pointer rounded-2xl bg-eco-500/10 border-2 border-dashed border-eco-500 p-4 text-center hover:bg-eco-500/15">
+              <div class="w-11 h-11 mx-auto rounded-full bg-eco-500 text-white flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <h4 class="font-extrabold text-eco-800 text-sm">سماد عضوي للنبات</h4>
+              <p class="text-[11px] text-slate-600 mt-1">قشور الفواكه وبقايا الطعام</p>
+              <div id="bin-list-compost" class="mt-2 flex flex-wrap justify-center gap-1"></div>
+            </div>
+
+            <div data-bin="reuse" class="guardian-bin interactive-card cursor-pointer rounded-2xl bg-amber-500/10 border-2 border-dashed border-amber-500 p-4 text-center hover:bg-amber-500/15">
+              <div class="w-11 h-11 mx-auto rounded-full bg-amber-500 text-white flex items-center justify-center text-lg mb-2">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <h4 class="font-extrabold text-amber-800 text-sm">إعادة الاستخدام الإبداعي</h4>
+              <p class="text-[11px] text-slate-600 mt-1">أطباق نظيفة لصنع أصيص زراعي</p>
+              <div id="bin-list-reuse" class="mt-2 flex flex-wrap justify-center gap-1"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAME 2: Clean Energy Path Pipe Rotation Puzzle -->
+        <div class="rounded-2xl bg-gradient-to-br from-skyclean-50 to-white border-2 border-skyclean-200 p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <span class="bg-skyclean-600 text-white text-xs font-bold px-3 py-1 rounded-full">اللعبة 2</span>
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-800 mt-1">لعبة "مسار الطاقة النظيفة" (توصيل الشبكة الذكية)</h3>
+            </div>
+            <div class="flex items-center gap-2 bg-eco-100 text-eco-800 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-extrabold">
+              <span>حالة المدينة:</span>
+              <span id="grid-status-badge">غير متصلة ⚡</span>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 mb-4">
+            <strong>مهمتكِ:</strong> انقري على قطع الأسلاك الدوارة في المنتصف لتدويرها حتى يكتمل الخط المتصل من <strong>الألواح الشمسية والسد المائي</strong> إلى <strong>المدرسة والمنازل</strong>!
+          </p>
+
+          <div class="bg-slate-900 rounded-2xl p-4 sm:p-6 text-white">
+            <div class="grid grid-cols-5 gap-2 sm:gap-3 max-w-xl mx-auto items-center text-center">
+              <!-- Col 1: Sources -->
+              <div class="space-y-3">
+                <div class="p-3 rounded-2xl bg-amber-500/20 border-2 border-amber-400">
+                  <div class="text-2xl">☀️</div>
+                  <div class="text-[11px] font-bold text-amber-300 mt-1">ألواح شمسية</div>
+                </div>
+                <div class="p-3 rounded-2xl bg-skyclean-500/20 border-2 border-skyclean-400">
+                  <div class="text-2xl">💧</div>
+                  <div class="text-[11px] font-bold text-skyclean-300 mt-1">سد مائي</div>
+                </div>
+              </div>
+
+              <!-- Col 2: Rotatable Wire A & B -->
+              <div class="space-y-3">
+                <button type="button" data-pipe="0" class="pipe-tile w-full aspect-square rounded-2xl bg-slate-800 border-2 border-slate-600 hover:border-amber-400 flex items-center justify-center text-2xl font-black text-amber-400" title="انقري لتدوير السلك">
+                  ┃
+                </button>
+                <button type="button" data-pipe="1" class="pipe-tile w-full aspect-square rounded-2xl bg-slate-800 border-2 border-slate-600 hover:border-skyclean-400 flex items-center justify-center text-2xl font-black text-skyclean-400" title="انقري لتدوير السلك">
+                  ┃
+                </button>
+              </div>
+
+              <!-- Col 3: Smart Transformer Hub -->
+              <div>
+                <div id="grid-hub" class="p-3 sm:p-4 rounded-2xl bg-slate-800 border-2 border-slate-600 transition-all">
+                  <div class="text-2xl sm:text-3xl">🔌</div>
+                  <div class="text-[11px] font-extrabold text-slate-300 mt-1">محوّل نظيف</div>
+                </div>
+              </div>
+
+              <!-- Col 4: Rotatable Main Line C -->
+              <div>
+                <button type="button" data-pipe="2" class="pipe-tile w-full aspect-square rounded-2xl bg-slate-800 border-2 border-slate-600 hover:border-eco-400 flex items-center justify-center text-2xl font-black text-eco-400" title="انقري لتدوير السلك">
+                  ┃
+                </button>
+              </div>
+
+              <!-- Col 5: City & School -->
+              <div>
+                <div id="grid-city-box" class="p-3 sm:p-4 rounded-2xl bg-slate-800 border-2 border-slate-600 transition-all">
+                  <div id="grid-city-icon" class="text-2xl sm:text-3xl">🏫</div>
+                  <div class="text-[11px] font-extrabold text-slate-300 mt-1">المدرسة والحي</div>
+                </div>
+              </div>
+            </div>
+
+            <p id="grid-hint-text" class="text-center text-xs sm:text-sm font-bold text-skyclean-300 mt-4">
+              انقري على قطع الأسلاك الثلاث (┃) لتصبح أفقية (━) وتوصل الكهرباء النظيفة!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         المحطة 3: محطة الأسئلة والتحدي والتفكير الناقد
+    ====================================================================== -->
+    <section id="station-3" class="station-panel hidden animate-pop space-y-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-skyclean-200 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800">المحطة 3: محطة الأسئلة والتحدي</h2>
+              <p class="text-xs sm:text-sm text-slate-500">تقويم فوري، ومهارة مشكلة وحل، والتفكير الناقد</p>
+            </div>
+          </div>
+          <button type="button" data-complete="3" data-next="4" class="complete-station-btn px-4 py-2.5 rounded-xl bg-eco-600 hover:bg-eco-700 text-white text-xs sm:text-sm font-bold shadow transition flex items-center gap-2">
+            <span>أتممتُ التحدي • انتقلي للسعودية الخضراء</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+
+        <!-- 4 Graded MCQs -->
+        <div id="mcq-container" class="space-y-4 mb-8"></div>
+
+        <!-- Problem & Solution + Critical Thinking -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Problem & Solution -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-eco-50 to-white border-2 border-eco-200">
+            <span class="inline-block bg-eco-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">مهارة: مشكلة وحل</span>
+            <h3 class="text-base sm:text-lg font-extrabold text-slate-800 mb-2">كيف نقلل نفايات أسرتنا اليومية بنسبة 30%؟</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-3">اختاري الحلول الذكية لتكوين خطة أسرتكِ البيئية:</p>
+            <div class="space-y-2 mb-4">
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-eco-200 cursor-pointer hover:bg-eco-50/60">
+                <input type="checkbox" class="family-plan-cb w-4 h-4 accent-eco-600" />
+                <span class="text-xs sm:text-sm font-bold text-slate-700">استخدام الحقائب القماشية عند التسوق بدلاً من الأكياس البلاستيكية.</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-eco-200 cursor-pointer hover:bg-eco-50/60">
+                <input type="checkbox" class="family-plan-cb w-4 h-4 accent-eco-600" />
+                <span class="text-xs sm:text-sm font-bold text-slate-700">استبدال الأكواب والأطباق ذات الاستخدام الواحد بأوانٍ قابلة للغسل.</span>
+              </label>
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-eco-200 cursor-pointer hover:bg-eco-50/60">
+                <input type="checkbox" class="family-plan-cb w-4 h-4 accent-eco-600" />
+                <span class="text-xs sm:text-sm font-bold text-slate-700">فرز الورق والبلاستيك في حاويات منفصلة وإرسالها لإعادة التدوير.</span>
+              </label>
+            </div>
+            <div id="family-plan-result" class="p-3 rounded-xl bg-eco-100 text-eco-800 text-xs sm:text-sm font-bold">
+              اختاري خطوات أسرتكِ لترَي نسبة تقليل النفايات!
+            </div>
+          </div>
+
+          <!-- Critical Thinking -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-skyclean-50 to-white border-2 border-skyclean-200 flex flex-col justify-between">
+            <div>
+              <span class="inline-block bg-skyclean-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">التفكير الناقد</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-800 mb-2">
+                ما أثر استبدال الوقود الأحفوري بالخلايا الشمسية في مدن المملكة على جودة الهواء والغلاف الجوي؟
+              </h3>
+              <textarea id="critical-thinking-input" rows="3" placeholder="اكتبي إجابتكِ العلمية هنا بعد مناقشتها مع أسرتكِ..." class="w-full p-3 rounded-xl bg-white border border-skyclean-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-skyclean-400 mb-3"></textarea>
+            </div>
+            <div>
+              <button type="button" id="btn-eval-critical" class="w-full py-2.5 px-4 rounded-xl bg-skyclean-600 hover:bg-skyclean-700 text-white font-bold text-xs sm:text-sm transition shadow-xs">
+                تقييم إجابتي وعرض الإجابة النموذجية
+              </button>
+              <div id="critical-model-answer" class="hidden mt-3 p-3.5 rounded-xl bg-white border-r-4 border-eco-500 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong>إجابة رائعة! التفسير العلمي:</strong> تُحوّل الخلايا الشمسية ضوء الشمس المتجدد مباشرة إلى كهرباء دون حرق الوقود الأحفوري، مما يمنع انبعاث غازات الدفيئة (مثل ثاني أكسيد الكربون) ويحافظ على نقاء الهواء وصحة الإنسان.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         المحطة 4: محطة الإثراء الوطني (السعودية الخضراء ورؤية 2030)
+    ====================================================================== -->
+    <section id="station-4" class="station-panel hidden animate-pop space-y-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-eco-200 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-eco-100 text-eco-700 flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-tree"></i>
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800">المحطة 4: مبادرة السعودية الخضراء ورؤية 2030</h2>
+              <p class="text-xs sm:text-sm text-slate-500">انقري على كل بطاقة لاستكشاف مستهدفات وطننا الغالي</p>
+            </div>
+          </div>
+          <button type="button" data-complete="4" data-next="5" class="complete-station-btn px-4 py-2.5 rounded-xl bg-skyclean-600 hover:bg-skyclean-700 text-white text-xs sm:text-sm font-bold shadow transition flex items-center gap-2">
+            <span>تابعي لأنماط التعلم والتمايز</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+
+        <!-- 3 Interactive Flippable/Expandable Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          <button type="button" data-sgi="1" class="sgi-card interactive-card text-right rounded-2xl overflow-hidden border-2 border-eco-200 hover:border-eco-500 bg-eco-50/40 flex flex-col">
+            <div class="h-32 w-full bg-gradient-to-br from-eco-500 to-emerald-700 flex flex-col items-center justify-center text-white p-4">
+              <i class="fa-solid fa-trees text-3xl mb-1"></i>
+              <span class="text-xl font-black">10 مليارات شجرة</span>
+              <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full mt-1">انقري للتفاصيل</span>
+            </div>
+            <div class="p-4 flex-1">
+              <h4 class="font-extrabold text-slate-800 mb-1">التشجير ومكافحة التصحر</h4>
+              <p id="sgi-desc-1" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                إعادة تأهيل 40 مليون هكتار من الأراضي المتدهورة وزيادة الغطاء النباتي لتنقية الهواء وتلطيف المناخ.
+              </p>
+            </div>
+          </button>
+
+          <button type="button" data-sgi="2" class="sgi-card interactive-card text-right rounded-2xl overflow-hidden border-2 border-skyclean-200 hover:border-skyclean-500 bg-skyclean-50/40 flex flex-col">
+            <div class="h-32 w-full bg-gradient-to-br from-skyclean-500 to-blue-700 flex flex-col items-center justify-center text-white p-4">
+              <i class="fa-solid fa-solar-panel text-3xl mb-1"></i>
+              <span class="text-xl font-black">50% طاقة متجددة</span>
+              <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full mt-1">انقري للتفاصيل</span>
+            </div>
+            <div class="p-4 flex-1">
+              <h4 class="font-extrabold text-slate-800 mb-1">الطاقة النظيفة بحلول 2030</h4>
+              <p id="sgi-desc-2" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                إنتاج نصف كهرباء المملكة من مصادر متجددة كالشمس والرياح وتقليل الانبعاثات الكربونية بأكثر من 278 مليون طن سنوياً.
+              </p>
+            </div>
+          </button>
+
+          <button type="button" data-sgi="3" class="sgi-card interactive-card text-right rounded-2xl overflow-hidden border-2 border-teal-200 hover:border-teal-500 bg-teal-50/40 flex flex-col">
+            <div class="h-32 w-full bg-gradient-to-br from-teal-500 to-cyan-700 flex flex-col items-center justify-center text-white p-4">
+              <i class="fa-solid fa-fish-fins text-3xl mb-1"></i>
+              <span class="text-xl font-black">حماية 30% من البيئة</span>
+              <span class="text-[11px] bg-white/20 px-2.5 py-0.5 rounded-full mt-1">انقري للتفاصيل</span>
+            </div>
+            <div class="p-4 flex-1">
+              <h4 class="font-extrabold text-slate-800 mb-1">المحميات البرية والبحرية</h4>
+              <p id="sgi-desc-3" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                حماية أكثر من 30% من المناطق البرية والبحرية في المملكة للحفاظ على الكائنات الحية والتنوع الأحيائي.
+              </p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Student Pledge Interactive Selector -->
+        <div class="p-5 rounded-2xl bg-gradient-to-l from-eco-50 to-skyclean-50 border border-eco-300">
+          <h3 class="text-base font-extrabold text-slate-800 mb-2">مبادرتي الشخصية لدعم السعودية الخضراء:</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mb-3">اختاري المبادرة التي ستنفذينها هذا الأسبوع في منزلكِ أو مدرستكِ:</p>
+          <div class="flex flex-wrap gap-2.5">
+            <button type="button" data-pledge="زراعة شتلة خضراء والعناية بها في حديقة المنزل أو المدرسة 🌱" class="pledge-btn px-4 py-2 rounded-xl bg-white border border-eco-300 hover:bg-eco-600 hover:text-white text-xs sm:text-sm font-bold transition">
+              🌱 زراعة شتلة خضراء والعناية بها
+            </button>
+            <button type="button" data-pledge="ترشيد استهلاك الكهرباء والماء يومياً في المنزل 💡" class="pledge-btn px-4 py-2 rounded-xl bg-white border border-skyclean-300 hover:bg-skyclean-600 hover:text-white text-xs sm:text-sm font-bold transition">
+              💡 ترشيد الكهرباء والماء يومياً
+            </button>
+            <button type="button" data-pledge="توعية زميلاتي بأهمية إعادة التدوير وتقليل البلاستيك ♻️" class="pledge-btn px-4 py-2 rounded-xl bg-white border border-teal-300 hover:bg-teal-600 hover:text-white text-xs sm:text-sm font-bold transition">
+              ♻️ نشر ثقافة التدوير في مدرستي
+            </button>
+          </div>
+          <div id="pledge-selected-msg" class="hidden mt-3 p-3 rounded-xl bg-white border border-eco-400 text-xs sm:text-sm font-extrabold text-eco-800"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         المحطة 5: محطة أنماط التعلم والتعليم المتمايز (تفاعلية بالكامل)
+    ====================================================================== -->
+    <section id="station-5" class="station-panel hidden animate-pop space-y-6">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-skyclean-200 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-skyclean-100 text-skyclean-600 flex items-center justify-center text-2xl">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-800">المحطة 5: أنماط التعلم والتعليم المتمايز</h2>
+              <p class="text-xs sm:text-sm text-slate-500">صمّمي خريطتكِ الذهنية، نفّذي التجربة الحركية، وقارني المصادر بنفسكِ</p>
+            </div>
+          </div>
+          <button type="button" data-complete="5" data-next="6" class="complete-station-btn px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs sm:text-sm font-bold shadow transition flex items-center gap-2">
+            <span>احصلي على شهادة الإنجاز</span>
+            <i class="fa-solid fa-award"></i>
+          </button>
+        </div>
+
+        <!-- 4 Sub-tabs -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+          <button type="button" data-diff="visual" class="diff-tab-btn p-3.5 rounded-2xl border-2 border-eco-500 bg-eco-50 text-eco-800 font-extrabold text-xs sm:text-sm flex flex-col items-center gap-1.5 transition shadow-xs">
+            <i class="fa-solid fa-diagram-project text-xl text-skyclean-600"></i>
+            <span>النمط البصري (صممي خريطتكِ)</span>
+          </button>
+
+          <button type="button" data-diff="kinesthetic" class="diff-tab-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 hover:border-eco-400 font-extrabold text-xs sm:text-sm flex flex-col items-center gap-1.5 transition">
+            <i class="fa-solid fa-hands-holding-circle text-xl text-eco-600"></i>
+            <span>النمط الحركي (تجربة قوة الماء)</span>
+          </button>
+
+          <button type="button" data-diff="support" class="diff-tab-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 hover:border-amber-400 font-extrabold text-xs sm:text-sm flex flex-col items-center gap-1.5 transition">
+            <i class="fa-solid fa-hand-holding-heart text-xl text-amber-500"></i>
+            <span>مسار الدعم (تلميحات بصرية)</span>
+          </button>
+
+          <button type="button" data-diff="enrichment" class="diff-tab-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 hover:border-purple-400 font-extrabold text-xs sm:text-sm flex flex-col items-center gap-1.5 transition">
+            <i class="fa-solid fa-rocket text-xl text-purple-600"></i>
+            <span>مسار الإثراء (مختبر المقارنة)</span>
+          </button>
+        </div>
+
+        <!-- 5A: Visual Learner - Interactive Concept Map Builder (3 branches, 9 slots) -->
+        <div id="diff-panel-visual" class="diff-panel rounded-2xl bg-skyclean-50/70 border-2 border-skyclean-200 p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <span class="bg-skyclean-600 text-white text-xs font-bold px-3 py-1 rounded-full">لعبة تصميم خريطة المفاهيم</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-skyclean-900 mt-1">ابنِ شجرة المفاهيم بنفسكِ (9 خانات تفاعلية)</h3>
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-xl border border-skyclean-200">
+              <span class="text-xs font-bold text-slate-600">اكتمال الخريطة:</span>
+              <span id="map-score" class="text-sm sm:text-base font-black text-skyclean-600">0 / 9</span>
+              <button type="button" id="btn-reset-map" class="text-xs text-rose-600 hover:underline font-bold mr-2">إعادة</button>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 mb-4">
+            <strong>طريقة اللعب:</strong> انقري على البطاقة الملونة من البنك بالأسفل (أو اسحبيها) ثم انقري على الخانة الفارغة المناسبة لها في الفروع الثلاثة لتضيء خريطتكِ!
+          </p>
+
+          <!-- Concept Map Tree -->
+          <div id="concept-map-tree" class="bg-white rounded-2xl p-4 sm:p-5 border border-skyclean-200 shadow-inner mb-5 transition-all">
+            <div class="flex justify-center">
+              <div class="px-6 py-3 rounded-2xl bg-gradient-to-l from-eco-600 to-skyclean-600 text-white font-black text-sm sm:text-base shadow-md flex items-center gap-2">
+                <i class="fa-solid fa-earth-asia"></i>
+                <span>حماية موارد الأرض (اليابسة والماء والهواء)</span>
+              </div>
+            </div>
+            <div class="flex justify-center"><div class="w-0.5 h-4 bg-skyclean-400"></div></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-1">
+              <!-- Branch 1 -->
+              <div class="rounded-2xl bg-amber-50/70 border-2 border-amber-200 p-3.5">
+                <div class="text-center font-extrabold text-sm text-amber-800 bg-amber-100 py-1.5 px-3 rounded-xl mb-3">
+                  1. الطاقة البديلة النظيفة
+                </div>
+                <div class="space-y-2">
+                  <div data-branch="energy" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-amber-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ بطاقة طاقة بديلة</div>
+                  <div data-branch="energy" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-amber-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ بطاقة طاقة بديلة</div>
+                  <div data-branch="energy" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-amber-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ بطاقة طاقة بديلة</div>
+                </div>
+              </div>
+
+              <!-- Branch 2 -->
+              <div class="rounded-2xl bg-eco-50/70 border-2 border-eco-200 p-3.5">
+                <div class="text-center font-extrabold text-sm text-eco-800 bg-eco-100 py-1.5 px-3 rounded-xl mb-3">
+                  2. قواعد التدوير (3Rs)
+                </div>
+                <div class="space-y-2">
+                  <div data-branch="waste" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-eco-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ قاعدة إدارة نفايات</div>
+                  <div data-branch="waste" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-eco-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ قاعدة إدارة نفايات</div>
+                  <div data-branch="waste" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-eco-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ قاعدة إدارة نفايات</div>
+                </div>
+              </div>
+
+              <!-- Branch 3 -->
+              <div class="rounded-2xl bg-skyclean-50/90 border-2 border-skyclean-200 p-3.5">
+                <div class="text-center font-extrabold text-sm text-skyclean-800 bg-skyclean-100 py-1.5 px-3 rounded-xl mb-3">
+                  3. خطوات تنقية المياه
+                </div>
+                <div class="space-y-2">
+                  <div data-branch="water" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-skyclean-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ خطوة تنقية ماء</div>
+                  <div data-branch="water" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-skyclean-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ خطوة تنقية ماء</div>
+                  <div data-branch="water" class="map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-skyclean-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2">+ خطوة تنقية ماء</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bank -->
+          <div class="bg-white/95 rounded-2xl p-4 border border-skyclean-300">
+            <div class="text-xs sm:text-sm font-extrabold text-slate-700 mb-2.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-layer-group text-skyclean-600"></i>
+              <span>بنك البطاقات الذهنية (انقري على البطاقة ثم الخانة المناسبة):</span>
+            </div>
+            <div id="map-cards-bank" class="flex flex-wrap justify-center gap-2 min-h-[44px]"></div>
+          </div>
+        </div>
+
+        <!-- 5B: Kinesthetic Learner - Home Water Power Experiment -->
+        <div id="diff-panel-kinesthetic" class="diff-panel hidden rounded-2xl bg-eco-50/70 border-2 border-eco-200 p-5">
+          <h3 class="text-base sm:text-lg font-extrabold text-eco-800 mb-3">
+            التجربة المنزلية الحركية: استكشاف "قوة الماء" بالمروحة الورقية والقلم
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+            <div class="space-y-3">
+              <div class="p-3 rounded-xl bg-white border border-eco-200 text-xs sm:text-sm">
+                <strong>الأدوات المنزلية:</strong> مروحة ورقية (أو طبق ورقي مقصوص الشفرات) + قلم رصاص + دبوس تثبيت + تيار ماء من الصنبور.
+              </div>
+              <div class="space-y-2">
+                <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-white border border-eco-200 cursor-pointer">
+                  <input type="checkbox" class="water-exp-cb mt-1 accent-eco-600" />
+                  <span class="text-xs sm:text-sm text-slate-700"><strong>1.</strong> ثبّتي مركز المروحة الورقية في طرف القلم الرصاص بحذر لتدور بحرية.</span>
+                </label>
+                <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-white border border-eco-200 cursor-pointer">
+                  <input type="checkbox" class="water-exp-cb mt-1 accent-eco-600" />
+                  <span class="text-xs sm:text-sm text-slate-700"><strong>2.</strong> قرّبي شفرات المروحة من تيار ماء خفيف يتدفق من الصنبور.</span>
+                </label>
+                <label class="flex items-start gap-2.5 p-2.5 rounded-xl bg-white border border-eco-200 cursor-pointer">
+                  <input type="checkbox" class="water-exp-cb mt-1 accent-eco-600" />
+                  <span class="text-xs sm:text-sm text-slate-700"><strong>3.</strong> زيدي تدفق الماء قليلاً ولاحظي سرعة دوران المروحة!</span>
+                </label>
+              </div>
+
+              <!-- Observation Logger -->
+              <div class="p-3.5 rounded-xl bg-white border border-eco-300">
+                <label for="water-obs-input" class="block text-xs font-extrabold text-eco-800 mb-1.5">
+                  توثيق الملاحظة العلمية: ماذا حدث عند زيادة تدفق الماء؟
+                </label>
+                <div class="flex gap-2">
+                  <input id="water-obs-input" type="text" placeholder="اكتبي ملاحظتكِ هنا..." class="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-eco-500" />
+                  <button type="button" id="btn-save-water-obs" class="px-4 py-2 rounded-xl bg-eco-600 hover:bg-eco-700 text-white text-xs font-bold">توثيق</button>
+                </div>
+                <p id="water-obs-feedback" class="hidden mt-2 text-xs font-bold text-eco-700"></p>
+              </div>
+            </div>
+
+            <!-- Spinning Pinwheel Diagram -->
+            <div class="bg-white rounded-2xl p-4 border border-eco-200 flex flex-col items-center">
+              <svg class="w-56 h-44" viewBox="0 0 220 170">
+                <path d="M 30 20 L 85 20 L 85 40 L 70 40 L 70 32 L 30 32 Z" fill="#64748B" />
+                <rect x="73" y="40" width="8" height="75" fill="#38BDF8" opacity="0.85" />
+                <g transform="translate(105, 95)">
+                  <g class="animate-spin-slow">
+                    <polygon points="0,0 -12,-35 12,-35" fill="#10B981" />
+                    <polygon points="0,0 35,-12 35,12" fill="#0EA5E9" />
+                    <polygon points="0,0 12,35 -12,35" fill="#34D399" />
+                    <polygon points="0,0 -35,12 -35,-12" fill="#38BDF8" />
+                  </g>
+                  <circle cx="0" cy="0" r="6" fill="#FACC15" />
+                </g>
+                <rect x="105" y="92" width="85" height="6" rx="2" fill="#F59E0B" />
+              </svg>
+              <span class="text-xs font-bold text-eco-700 text-center">طاقة الماء الحركية تُدير التوربينات لتوليد الكهرباء النظيفة!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5C: Support Track (Visual Hints) -->
+        <div id="diff-panel-support" class="diff-panel hidden rounded-2xl bg-amber-50/70 border-2 border-amber-200 p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h3 class="text-base sm:text-lg font-extrabold text-amber-900">مسار الدعم والتيسير البصري</h3>
+            <button type="button" id="btn-reveal-hints" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs sm:text-sm font-bold shadow-xs">
+              <i class="fa-solid fa-eye ml-1"></i> أحتاج تلميحاً بصرياً مبسطاً
+            </button>
+          </div>
+          <div id="visual-hints-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-amber-200 text-center">
+              <span class="text-3xl block mb-2">☀️ ➡️ ⚡</span>
+              <div class="font-extrabold text-sm text-slate-800 mb-1">الشمس = كهرباء نظيفة</div>
+              <p class="text-xs text-slate-600">الخلايا الشمسية تأخذ الضوء وتعطينا كهرباء دون دخان.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-amber-200 text-center">
+              <span class="text-3xl block mb-2">🪨 ➡️ 🏖️ ➡️ 🧪</span>
+              <div class="font-extrabold text-sm text-slate-800 mb-1">رحلة تنقية الماء</div>
+              <p class="text-xs text-slate-600">حصى كبير أولاً، ثم رمل ناعم، ثم فلتر، وأخيراً كلور للتعقيم.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-amber-200 text-center">
+              <span class="text-3xl block mb-2">♻️ 3Rs</span>
+              <div class="font-extrabold text-sm text-slate-800 mb-1">قواعد حماية اليابسة</div>
+              <p class="text-xs text-slate-600">ترشيد الاستهلاك، إعادة الاستخدام، وإعادة التدوير.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5D: Enrichment Track for Gifted Students (Comparison Lab) -->
+        <div id="diff-panel-enrichment" class="diff-panel hidden rounded-2xl bg-purple-50/70 border-2 border-purple-200 p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <span class="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">مختبر الإثراء للمتفوقات</span>
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-800 mt-1">مقارنة مصادر الطاقة ببطاقات المساعدة الذكية</h3>
+            </div>
+            <button type="button" id="btn-reset-compare" class="text-xs text-purple-700 hover:underline font-bold">إعادة الضبط</button>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 mb-4">
+            انقري على بطاقات المساعدة (أو اسحبيها) لتصنيف خصائص <strong>(الوقود الأحفوري)</strong> مقابل <strong>(الطاقة الشمسية وطاقة السدود)</strong>، ثم اختاري الاستنتاج العلمي الصحيح!
+          </p>
+
+          <!-- Helper Cards Pool -->
+          <div class="bg-white rounded-2xl p-3.5 border border-purple-200 mb-4">
+            <div class="text-xs font-extrabold text-purple-800 mb-2">بطاقات المساعدة الذكية:</div>
+            <div id="compare-cards-pool" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <!-- 2 Comparison Columns -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div data-compare-col="fossil" class="compare-col interactive-card cursor-pointer rounded-2xl bg-slate-100 border-2 border-dashed border-slate-400 p-4">
+              <div class="flex items-center justify-between border-b border-slate-300 pb-2 mb-3">
+                <h4 class="font-extrabold text-sm text-slate-800">🏭 الوقود الأحفوري (النفط والفحم)</h4>
+                <span id="fossil-count" class="text-xs font-bold bg-white px-2 py-0.5 rounded-full text-slate-600">0 / 3</span>
+              </div>
+              <div id="compare-list-fossil" class="space-y-2 min-h-[100px]"></div>
+            </div>
+
+            <div data-compare-col="renewable" class="compare-col interactive-card cursor-pointer rounded-2xl bg-eco-50 border-2 border-dashed border-eco-500 p-4">
+              <div class="flex items-center justify-between border-b border-eco-200 pb-2 mb-3">
+                <h4 class="font-extrabold text-sm text-eco-900">☀️ الطاقة الشمسية وطاقة السدود</h4>
+                <span id="renewable-count" class="text-xs font-bold bg-white px-2 py-0.5 rounded-full text-eco-700">0 / 3</span>
+              </div>
+              <div id="compare-list-renewable" class="space-y-2 min-h-[100px]"></div>
+            </div>
+          </div>
+
+          <!-- Scientific Conclusion Selector -->
+          <div class="bg-white rounded-2xl p-4 border border-purple-200">
+            <div class="text-xs sm:text-sm font-extrabold text-slate-800 mb-2">
+              بناءً على مقارنتكِ، اختاري الاستنتاج العلمي الأدق لمستقبل المملكة:
+            </div>
+            <div class="space-y-2">
+              <button type="button" data-conc="false" class="conc-option-btn w-full text-right p-3 rounded-xl border border-slate-300 hover:bg-purple-50 text-xs sm:text-sm font-bold">
+                أ) الاعتماد الكلي على الفحم الحجري لأنه لا ينفد أبداً ولا يلوث الهواء.
+              </button>
+              <button type="button" data-conc="true" class="conc-option-btn w-full text-right p-3 rounded-xl border border-slate-300 hover:bg-purple-50 text-xs sm:text-sm font-bold">
+                ب) التوسع في الطاقة الشمسية وطاقة السدود لأنها مصادر متجددة ونظيفة وتلائم مناخ المملكة وتحمي البيئة.
+              </button>
+            </div>
+            <div id="enrichment-feedback" class="hidden mt-3 p-3 rounded-xl text-xs sm:text-sm font-bold"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         المحطة 6: حصاد الإنجاز وشهادة "سفيرة البيئة النظيفة"
+    ====================================================================== -->
+    <section id="station-6" class="station-panel hidden animate-pop">
+      <div id="printable-certificate" class="bg-gradient-to-br from-white via-eco-50 to-skyclean-50 rounded-3xl p-6 sm:p-10 border-4 border-double border-eco-500 shadow-xl text-center relative overflow-hidden">
+        <i class="fa-solid fa-leaf text-4xl text-eco-400/40 absolute top-4 right-4"></i>
+        <i class="fa-solid fa-sun text-4xl text-amber-400/40 absolute top-4 left-4"></i>
+
+        <div class="basmalah-font text-2xl sm:text-3xl text-eco-700 mb-2">﷽</div>
+        <div class="inline-block bg-eco-600 text-white text-xs sm:text-sm font-bold px-4 py-1 rounded-full mb-3">
+          شهادة إنجاز علمي • المعمل الافتراضي المنزلي
+        </div>
+
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-800 mb-2">وسام "سفيرة البيئة النظيفة"</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mb-5">
+          تُمنح هذه الشهادة تقديراً لإتمام الاستكشاف المنزلي لدرس: <strong>(كيف نحافظ على اليابسة والماء والهواء في الأرض؟)</strong>
+        </p>
+
+        <!-- Student & Class Inputs -->
+        <div class="max-w-lg mx-auto bg-white/95 p-4 rounded-2xl border border-skyclean-200 shadow-xs mb-5 space-y-3">
+          <div>
+            <label for="cert-student-name" class="block text-xs font-bold text-slate-500 mb-1">اسم الطالبة المبدعة:</label>
+            <input id="cert-student-name" type="text" placeholder="اكتبي اسمكِ الثلاثي هنا..." class="w-full text-center text-lg sm:text-xl font-black text-eco-700 bg-transparent border-b-2 border-eco-300 focus:border-eco-600 focus:outline-none py-1" />
+          </div>
+          <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div>
+              <label for="cert-class-name" class="block text-xs font-bold text-slate-500 mb-1">الصف الدراسي:</label>
+              <input id="cert-class-name" type="text" value="السادس الابتدائي" class="w-full text-center font-bold text-slate-700 bg-slate-50 rounded-lg py-1.5 border border-slate-200" />
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-500 mb-1">نقاط البصمة الخضراء:</span>
+              <div class="font-black text-eco-700 bg-eco-50 rounded-lg py-1.5 border border-eco-200">
+                <span id="cert-final-points">0</span> نقطة خضراء 🌟
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 text-xs sm:text-sm font-bold text-slate-700 mb-6">
+          <span class="bg-white px-3.5 py-1.5 rounded-xl border border-eco-200">
+            <i class="fa-solid fa-school text-skyclean-600 ml-1"></i>
+            <span id="cert-school-mirror">المدرسة الابتدائية السابعة والأربعون</span>
+          </span>
+          <span class="bg-white px-3.5 py-1.5 rounded-xl border border-eco-200">
+            <i class="fa-solid fa-people-roof text-eco-600 ml-1"></i>
+            شركاء التعلم: أسرتي تسأل.. والصف يفكر
+          </span>
+        </div>
+
+        <div class="no-print flex flex-wrap justify-center gap-3">
+          <button type="button" id="btn-claim-cert" class="px-6 py-3 rounded-2xl bg-gradient-to-l from-eco-600 to-skyclean-600 hover:opacity-95 text-white font-extrabold text-sm shadow-md transition flex items-center gap-2">
+            <i class="fa-solid fa-check-circle"></i>
+            <span>اعتماد الشهادة وإتمام المعمل</span>
+          </button>
+          <button type="button" id="btn-print-cert" class="px-5 py-3 rounded-2xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-bold text-sm shadow-xs transition flex items-center gap-2">
+            <i class="fa-solid fa-print"></i>
+            <span>طباعة / حفظ كـ PDF</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-8 text-center text-xs text-slate-500 pb-4">
+      <p class="font-bold text-slate-600">المعمل الافتراضي المنزلي لمادة العلوم • الصف السادس الابتدائي (المنهج السعودي)</p>
+    </footer>
+  </div>
+
+  <!-- =====================================================================
+       JAVASCRIPT: CLEAN, MODULAR & 100% TESTED EVENT LISTENERS
+  ====================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ---------------------------------------------------------------------
+      // 1. GLOBAL STATE & HUD UPDATERS
+      // ---------------------------------------------------------------------
+      const state = {
+        points: 0,
+        completedStations: new Set(),
+        badges: new Set(),
+        solarOn: false,
+        waterStage: 0,
+        guardianScore: 0,
+        selectedGuardianItem: null,
+        pipes: [0, 0, 0], // 0 = vertical (disconnected), 1 = horizontal (connected)
+        gridSolved: false,
+        mapScore: 0,
+        selectedMapCard: null,
+        compareScore: 0,
+        fossilCount: 0,
+        renewableCount: 0,
+        selectedCompareCard: null
+      };
+
+      let toastTimeout = null;
+      function showToast(message, type = 'success') {
+        const box = document.getElementById('toast-box');
+        const icon = document.getElementById('toast-icon');
+        const msg = document.getElementById('toast-msg');
+        if (!box || !icon || !msg) return;
+
+        box.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-3 rounded-2xl shadow-2xl border text-xs sm:text-sm font-extrabold transition-all duration-300 max-w-[92vw]';
+        if (type === 'success') {
+          box.classList.add('bg-eco-600', 'text-white', 'border-eco-400');
+          icon.textContent = '🌟';
+        } else if (type === 'info') {
+          box.classList.add('bg-skyclean-600', 'text-white', 'border-skyclean-400');
+          icon.textContent = '💡';
+        } else {
+          box.classList.add('bg-amber-500', 'text-white', 'border-amber-300');
+          icon.textContent = '🤔';
+        }
+
+        msg.textContent = message;
+        box.classList.remove('hidden');
+
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          box.classList.add('hidden');
+        }, 3200);
+      }
+
+      function addPoints(amount, badgeId = null) {
+        state.points += amount;
+        document.getElementById('green-points').textContent = state.points;
+        document.getElementById('cert-final-points').textContent = state.points;
+
+        if (badgeId && !state.badges.has(badgeId)) {
+          state.badges.add(badgeId);
+          const badgeEl = document.getElementById(`badge-${badgeId}`);
+          if (badgeEl) {
+            badgeEl.className = 'px-2.5 py-1 rounded-full bg-gradient-to-l from-eco-500 to-skyclean-500 text-white shadow-xs transition-all';
+          }
+        }
+      }
+
+      function updateProgress() {
+        const count = state.completedStations.size;
+        const pct = Math.round((count / 6) * 100);
+        document.getElementById('progress-bar').style.width = `${pct}%`;
+        document.getElementById('progress-text').textContent = `${pct}% (${count} / 6)`;
+      }
+
+      // Sync editable school name with certificate
+      const schoolInput = document.getElementById('school-name-display');
+      if (schoolInput) {
+        schoolInput.addEventListener('input', () => {
+          document.getElementById('cert-school-mirror').textContent = schoolInput.textContent.trim() || 'مدرستي الحبيبة';
+        });
+      }
+
+      // ---------------------------------------------------------------------
+      // 2. STATION NAVIGATION (TABS & NEXT BUTTONS)
+      // ---------------------------------------------------------------------
+      function switchStation(stationNum) {
+        const num = Number(stationNum);
+        document.querySelectorAll('.station-panel').forEach(panel => {
+          panel.classList.add('hidden');
+        });
+        const targetPanel = document.getElementById(`station-${num}`);
+        if (targetPanel) {
+          targetPanel.classList.remove('hidden');
+        }
+
+        document.querySelectorAll('.station-tab-btn').forEach(btn => {
+          const btnNum = Number(btn.getAttribute('data-station'));
+          if (btnNum === num) {
+            btn.className = 'station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-gradient-to-l from-eco-500 to-skyclean-500 text-white shadow-sm';
+          } else {
+            btn.className = 'station-tab-btn flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all bg-slate-50 text-slate-700 hover:bg-eco-50';
+          }
+        });
+
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.station-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          switchStation(btn.getAttribute('data-station'));
+        });
+      });
+
+      document.querySelectorAll('.complete-station-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const current = Number(btn.getAttribute('data-complete'));
+          const next = Number(btn.getAttribute('data-next'));
+          state.completedStations.add(current);
+          const checkIcon = document.getElementById(`check-${current}`);
+          if (checkIcon) checkIcon.classList.remove('hidden');
+          updateProgress();
+          showToast(`أحسنتِ! أتممتِ المحطة ${current} بنجاح.`, 'success');
+          if (next) switchStation(next);
+        });
+      });
+
+      // ---------------------------------------------------------------------
+      // 3. STATION 1: SOLAR SIMULATOR, ENERGY CARDS & WATER PURIFICATION
+      // ---------------------------------------------------------------------
+      const solarSlider = document.getElementById('solar-intensity');
+      const btnToggleSolar = document.getElementById('btn-toggle-solar');
+
+      function updateSolarVisuals(intensity) {
+        const val = Number(intensity);
+        document.getElementById('solar-pct-label').textContent = `${val}%`;
+        document.getElementById('solar-watts').textContent = Math.round(val * 3.5);
+
+        const sky = document.getElementById('solar-sky');
+        const sun = document.getElementById('solar-sun-orb');
+        const rays = document.getElementById('solar-rays-group');
+        const line = document.getElementById('solar-power-line');
+        const winColor = val >= 60 ? '#FEF08A' : val > 0 ? '#FDE68A' : '#94A3B8';
+
+        sky.setAttribute('fill', val > 0 ? '#E0F2FE' : '#0F172A');
+        sun.setAttribute('fill', val > 0 ? '#FACC15' : '#475569');
+        rays.setAttribute('opacity', val > 0 ? (val / 100).toFixed(2) : '0');
+
+        if (val > 0) {
+          line.setAttribute('stroke', '#FACC15');
+          line.classList.add('energy-flow');
+          document.getElementById('solar-btn-label').textContent = 'إيقاف أشعة الشمس';
+          state.solarOn = true;
+        } else {
+          line.setAttribute('stroke', '#94A3B8');
+          line.classList.remove('energy-flow');
+          document.getElementById('solar-btn-label').textContent = 'تشغيل أشعة الشمس';
+          state.solarOn = false;
+        }
+
+        ['city-win-a', 'city-win-b', 'city-win-c', 'city-win-d'].forEach((id, i) => {
+          const threshold = (i + 1) * 25;
+          document.getElementById(id).setAttribute('fill', val >= threshold ? winColor : '#94A3B8');
+        });
+
+        const fb = document.getElementById('solar-feedback');
+        if (val === 100) {
+          fb.textContent = 'مذهل! أقصى طاقة شمسية نظيفة تضيء المدينة بالكامل دون انبعاثات!';
+          fb.className = 'text-xs font-extrabold text-eco-700 text-center mt-2';
+          addPoints(15, 'solar');
+        } else if (val > 0) {
+          fb.textContent = `تعمل الخلايا الشمسية الآن بكفاءة ${val}% وتغذي المدينة بالكهرباء.`;
+          fb.className = 'text-xs font-bold text-skyclean-700 text-center mt-2';
+        } else {
+          fb.textContent = 'شغّلي الشمس أو ارفعي شدة الإشعاع لإضاءة المدينة!';
+          fb.className = 'text-xs font-bold text-slate-600 text-center mt-2';
+        }
+      }
+
+      btnToggleSolar.addEventListener('click', () => {
+        const nextVal = state.solarOn ? 0 : 100;
+        solarSlider.value = nextVal;
+        updateSolarVisuals(nextVal);
+      });
+
+      solarSlider.addEventListener('input', (e) => {
+        updateSolarVisuals(e.target.value);
+      });
+
+      // Alternative Energy Info Cards
+      document.querySelectorAll('.energy-info-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const key = card.getAttribute('data-energy-info');
+          const detail = document.getElementById(`info-detail-${key}`);
+          if (detail) {
+            detail.classList.toggle('hidden');
+          }
+        });
+      });
+
+      // 4-Stage Water Purification Lab
+      const waterStageInfo = {
+        1: { pct: 25, color: '#b45309', icons: '🦠', desc: 'المرحلة 1 (الحصى): تم حجز الحجارة وأوراق الشجر الكبيرة!' },
+        2: { pct: 50, color: '#d97706', icons: '🦠', desc: 'المرحلة 2 (الرمل الناعم): تمت تصفية الأتربة والعوالق الدقيقة!' },
+        3: { pct: 75, color: '#38bdf8', icons: '✨', desc: 'المرحلة 3 (الفلترة الدقيقة): أصبحت المياه صافية وخالية من الروائح!' },
+        4: { pct: 100, color: '#0ea5e9', icons: '💧✨', desc: 'المرحلة 4 (التعقيم بالكلور): تم القضاء على الجراثيم! الماء نقي 100% وصالح للشرب.' }
+      };
+
+      document.querySelectorAll('.water-stage-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const stage = Number(btn.getAttribute('data-water-stage'));
+          if (stage !== state.waterStage + 1) {
+            if (stage <= state.waterStage) {
+              showToast('هذه المرحلة مكتملة بالفعل! انتقلي للمرحلة التالية.', 'info');
+            } else {
+              showToast(`ابدئي بالمرحلة ${state.waterStage + 1} أولاً بالترتيب الصحيح!`, 'warn');
+            }
+            return;
+          }
+
+          state.waterStage = stage;
+          const info = waterStageInfo[stage];
+          document.getElementById('water-purity-pct').textContent = `${info.pct}%`;
+          document.getElementById('water-liquid-fill').style.backgroundColor = info.color;
+          document.getElementById('water-impurities').textContent = info.icons;
+          document.getElementById('water-stage-desc').textContent = info.desc;
+
+          const statusBadge = document.getElementById(`w-status-${stage}`);
+          statusBadge.textContent = 'مكتملة ✅';
+          statusBadge.className = 'text-xs bg-eco-100 text-eco-800 px-2.5 py-0.5 rounded-full font-bold';
+
+          const nextBadge = document.getElementById(`w-status-${stage + 1}`);
+          if (nextBadge) {
+            nextBadge.textContent = 'اضغطي للتشغيل';
+            nextBadge.className = 'text-xs bg-skyclean-100 text-skyclean-800 px-2.5 py-0.5 rounded-full font-bold';
+          }
+
+          if (stage === 4) {
+            addPoints(20);
+            showToast('أحسنتِ! أتممتِ تنقية المياه بنسبة 100% (+20 نقطة) 💧', 'success');
+          }
+        });
+      });
+
+      document.getElementById('btn-reset-water').addEventListener('click', () => {
+        state.waterStage = 0;
+        document.getElementById('water-purity-pct').textContent = '0%';
+        document.getElementById('water-liquid-fill').style.backgroundColor = '#92400e';
+        document.getElementById('water-impurities').textContent = '🍂🪨🦠';
+        document.getElementById('water-stage-desc').textContent = 'الماء الآن عكر ويحتوي على شوائب وجراثيم. ابدئي بالمرحلة 1!';
+        [1, 2, 3, 4].forEach(n => {
+          const st = document.getElementById(`w-status-${n}`);
+          st.textContent = n === 1 ? 'اضغطي للتشغيل' : 'في الانتظار';
+          st.className = 'text-xs bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full font-bold';
+        });
+      });
+
+      // ---------------------------------------------------------------------
+      // 4. STATION 2: GAMES (ENVIRONMENT GUARDIAN & CLEAN ENERGY PATH)
+      // ---------------------------------------------------------------------
+      const guardianItemsData = [
+        { id: 'g-1', emoji: '🧴', label: 'قارورة ماء بلاستيكية', bin: 'plastic' },
+        { id: 'g-2', emoji: '🍽️', label: 'طبق ورقي نظيف (لأصيص زراعي)', bin: 'reuse' },
+        { id: 'g-3', emoji: '🍌', label: 'قشر موز وبقايا فواكه', bin: 'compost' },
+        { id: 'g-4', emoji: '📰', label: 'جريدة قديمة وكرتون', bin: 'paper' },
+        { id: 'g-5', emoji: '🥫', label: 'علبة معدنية فارغة', bin: 'plastic' },
+        { id: 'g-6', emoji: '🥗', label: 'صحن بلاستيك نظيف للتزيين', bin: 'reuse' }
+      ];
+
+      function renderGuardianGame() {
+        const pool = document.getElementById('guardian-pool');
+        pool.innerHTML = '';
+        state.guardianScore = 0;
+        state.selectedGuardianItem = null;
+        document.getElementById('guardian-score').textContent = '0 / 6';
+        ['plastic', 'paper', 'compost', 'reuse'].forEach(b => {
+          document.getElementById(`bin-list-${b}`).innerHTML = '';
+        });
+
+        guardianItemsData.forEach(item => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.id = item.id;
+          btn.draggable = true;
+          btn.setAttribute('data-bin', item.bin);
+          btn.className = 'guardian-item interactive-card px-3.5 py-2 rounded-xl bg-white border-2 border-eco-300 hover:border-eco-500 text-xs sm:text-sm font-bold text-slate-800 shadow-xs flex items-center gap-2';
+          btn.innerHTML = `<span class="text-lg">${item.emoji}</span><span>${item.label}</span>`;
+
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.guardian-item').forEach(el => el.classList.remove('ring-4', 'ring-eco-500', 'bg-eco-50'));
+            state.selectedGuardianItem = btn;
+            btn.classList.add('ring-4', 'ring-eco-500', 'bg-eco-50');
+            showToast('الآن انقري على الحاوية المناسبة لهذا العنصر!', 'info');
+          });
+
+          btn.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', item.id);
+          });
+
+          pool.appendChild(btn);
+        });
+      }
+
+      function handleGuardianSort(itemEl, targetBin) {
+        if (!itemEl) return;
+        const correctBin = itemEl.getAttribute('data-bin');
+        if (correctBin === targetBin) {
+          state.guardianScore++;
+          document.getElementById('guardian-score').textContent = `${state.guardianScore} / 6`;
+
+          const tag = document.createElement('span');
+          tag.className = 'text-[11px] bg-white px-2 py-0.5 rounded-full border border-slate-200 font-bold text-slate-700';
+          tag.textContent = itemEl.textContent.trim();
+          document.getElementById(`bin-list-${targetBin}`).appendChild(tag);
+
+          itemEl.remove();
+          state.selectedGuardianItem = null;
+          addPoints(5);
+
+          if (state.guardianScore === 6) {
+            addPoints(20, 'guardian');
+            showToast('مذهلة! فرزتِ جميع النفايات ونلتِ وسام حارسة البيئة 🛡️', 'success');
+          } else {
+            showToast('فرز صحيح! أحسنتِ الحفاظ على الأرض (+5 نقاط).', 'success');
+          }
+        } else {
+          itemEl.classList.remove('ring-4', 'ring-eco-500', 'bg-eco-50');
+          state.selectedGuardianItem = null;
+          showToast('حاولي مرة أخرى! اختاري الحاوية الأنسب لهذا العنصر.', 'warn');
+        }
+      }
+
+      document.querySelectorAll('.guardian-bin').forEach(binEl => {
+        const binType = binEl.getAttribute('data-bin');
+        binEl.addEventListener('click', () => {
+          if (state.selectedGuardianItem) {
+            handleGuardianSort(state.selectedGuardianItem, binType);
+          }
+        });
+        binEl.addEventListener('dragover', (e) => e.preventDefault());
+        binEl.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const id = e.dataTransfer.getData('text/plain');
+          handleGuardianSort(document.getElementById(id), binType);
+        });
+      });
+
+      document.getElementById('btn-reset-guardian').addEventListener('click', renderGuardianGame);
+
+      // Game 2: Clean Energy Path Pipe Rotation
+      document.querySelectorAll('.pipe-tile').forEach(pipeBtn => {
+        pipeBtn.addEventListener('click', () => {
+          const idx = Number(pipeBtn.getAttribute('data-pipe'));
+          state.pipes[idx] = state.pipes[idx] === 0 ? 1 : 0;
+
+          if (state.pipes[idx] === 1) {
+            pipeBtn.textContent = '━';
+            pipeBtn.classList.add('bg-eco-900/60', 'border-eco-400');
+          } else {
+            pipeBtn.textContent = '┃';
+            pipeBtn.classList.remove('bg-eco-900/60', 'border-eco-400');
+          }
+
+          if (state.pipes.every(p => p === 1)) {
+            document.getElementById('grid-hub').classList.add('border-amber-400', 'bg-amber-500/20');
+            document.getElementById('grid-city-box').classList.add('border-eco-400', 'bg-eco-500/25');
+            document.getElementById('grid-city-icon').textContent = '🏫✨';
+            document.getElementById('grid-status-badge').textContent = 'مُضاءة بطاقة نظيفة 100% 🌟';
+            document.getElementById('grid-hint-text').textContent = 'رائع! اكتمل مسار الطاقة النظيفة وأضاءت المدرسة والحي دون تلوث!';
+            document.getElementById('grid-hint-text').className = 'text-center text-xs sm:text-sm font-extrabold text-emerald-400 mt-4';
+
+            if (!state.gridSolved) {
+              state.gridSolved = true;
+              addPoints(25, 'grid');
+              showToast('عبقرية! أوصلتِ شبكة الطاقة النظيفة ونلتِ وسام مهندسة الشبكة ⚡', 'success');
+            }
+          } else {
+            document.getElementById('grid-hub').classList.remove('border-amber-400', 'bg-amber-500/20');
+            document.getElementById('grid-city-box').classList.remove('border-eco-400', 'bg-eco-500/25');
+            document.getElementById('grid-city-icon').textContent = '🏫';
+            document.getElementById('grid-status-badge').textContent = 'غير متصلة ⚡';
+          }
+        });
+      });
+
+      // ---------------------------------------------------------------------
+      // 5. STATION 3: 4 MCQs, FAMILY PLAN & CRITICAL THINKING
+      // ---------------------------------------------------------------------
+      const mcqList = [
+        {
+          q: 'س1 (التذكر): ما مصدر الطاقة البديلة الذي يعتمد على الحرارة والبخار الخارج من باطن الأرض؟',
+          options: ['أ) طاقة الكتلة الحيوية', 'ب) الطاقة الحرارية الجوفية', 'ج) الطاقة الكهرومائية'],
+          correct: 1,
+          explain: 'صحيح! الطاقة الحرارية الجوفية تستغل البخار الساخن من باطن الأرض كما في إيسلندا.'
+        },
+        {
+          q: 'س2 (التطبيق): أيُّ سلوك يمثل قاعدة (إعادة الاستخدام - Reuse)؟',
+          options: ['أ) صهر علب الألمنيوم في المصنع', 'ب) إطفاء المصابيح عند مغادرة الغرفة', 'ج) تزيين الأطباق والعلب النظيفة لحفظ الأقلام'],
+          correct: 2,
+          explain: 'ممتاز! استخدام الأداة لغرض جديد دون صهرها هو إعادة استخدام.'
+        },
+        {
+          q: 'س3 (التحليل): ما دور طبقة الحصى في المرحلة الأولى من تنقية المياه؟',
+          options: ['أ) تعقيم الماء وقتل الجراثيم', 'ب) حجز الأجسام الكبيرة كالحجارة وأوراق الشجر', 'ج) إذابة الأملاح المعدنية'],
+          correct: 1,
+          explain: 'أحسنتِ! الحصى يحجز الشوائب الكبيرة في بداية عملية الترسيب والترشيح.'
+        },
+        {
+          q: 'س4 (التقويم): لماذا تُعد الطاقة الشمسية خياراً مثالياً للمملكة العربية السعودية؟',
+          options: ['أ) لسطوع الشمس القوي طوال العام ونظافتها البيئية', 'ب) لأنها تزيد من انبعاث الغازات', 'ج) لأنها تعمل ليلاً فقط'],
+          correct: 0,
+          explain: 'رائع! موقع المملكة يمنحها سطوعاً شمسياً عالياً يدعم مشاريع الطاقة المتجددة.'
+        }
+      ];
+
+      function renderMCQs() {
+        const container = document.getElementById('mcq-container');
+        container.innerHTML = '';
+        mcqList.forEach((item, qIdx) => {
+          const card = document.createElement('div');
+          card.className = 'p-4 rounded-2xl bg-slate-50 border border-slate-200';
+          card.innerHTML = `
+            <p class="font-extrabold text-sm sm:text-base text-slate-800 mb-3">${item.q}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="mcq-opts-${qIdx}"></div>
+            <div id="mcq-fb-${qIdx}" class="hidden mt-3 p-3 rounded-xl text-xs sm:text-sm font-bold"></div>
+          `;
+          container.appendChild(card);
+
+          const optsDiv = card.querySelector(`#mcq-opts-${qIdx}`);
+          item.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'p-3 rounded-xl bg-white border border-slate-300 text-right text-xs sm:text-sm font-bold hover:bg-skyclean-50 transition';
+            btn.textContent = optText;
+            btn.addEventListener('click', () => {
+              const fb = document.getElementById(`mcq-fb-${qIdx}`);
+              fb.classList.remove('hidden', 'bg-eco-100', 'text-eco-800', 'bg-rose-100', 'text-rose-800');
+              if (optIdx === item.correct) {
+                btn.classList.add('bg-eco-100', 'border-eco-500');
+                fb.classList.add('bg-eco-100', 'text-eco-800');
+                fb.textContent = `✅ ${item.explain}`;
+                if (!card.dataset.solved) {
+                  card.dataset.solved = 'true';
+                  addPoints(10);
+                }
+              } else {
+                btn.classList.add('bg-rose-100', 'border-rose-400');
+                fb.classList.add('bg-rose-100', 'text-rose-800');
+                fb.textContent = '❌ إجابة غير دقيقة، فكّري قليلاً وحاولي مرة أخرى!';
+              }
+            });
+            optsDiv.appendChild(btn);
+          });
+        });
+      }
+
+      document.querySelectorAll('.family-plan-cb').forEach(cb => {
+        cb.addEventListener('change', () => {
+          const count = document.querySelectorAll('.family-plan-cb:checked').length;
+          const res = document.getElementById('family-plan-result');
+          if (count === 0) {
+            res.textContent = 'اختاري خطوات أسرتكِ لترَي نسبة تقليل النفايات!';
+          } else if (count === 3) {
+            res.textContent = '🌟 خطة أسرية مثالية! ستخفض أسرتكِ نفاياتها بأكثر من 40% أسبوعياً!';
+            addPoints(15);
+          } else {
+            res.textContent = `👍 خطوة رائعة! اخترتِ ${count} من 3 حلول عملية لتقليل النفايات.`;
+          }
+        });
+      });
+
+      document.getElementById('btn-eval-critical').addEventListener('click', () => {
+        const val = document.getElementById('critical-thinking-input').value.trim();
+        if (val.length < 5) {
+          showToast('اكتبي إجابتكِ العلمية أولاً في المربع ثم اضغطي التقييم!', 'warn');
+          return;
+        }
+        document.getElementById('critical-model-answer').classList.remove('hidden');
+        addPoints(15);
+        showToast('أحسنتِ التفكير الناقد يا عالمة المستقبل (+15 نقطة)!', 'success');
+      });
+
+      // ---------------------------------------------------------------------
+      // 6. STATION 4: SAUDI GREEN INITIATIVE 2030
+      // ---------------------------------------------------------------------
+      document.querySelectorAll('.sgi-card').forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('ring-4');
+          card.classList.toggle('ring-eco-400');
+          showToast('مبادرة السعودية الخضراء تبني مستقبلاً مستداماً لوطننا 🇸🇦', 'info');
+        });
+      });
+
+      document.querySelectorAll('.pledge-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const pledgeText = btn.getAttribute('data-pledge');
+          const box = document.getElementById('pledge-selected-msg');
+          box.classList.remove('hidden');
+          box.textContent = `✅ تم اعتماد تعهدكِ البيئي: "${pledgeText}" — فخورون بكِ يا سفيرة البيئة!`;
+          addPoints(15);
+          showToast('تم تسجيل تعهدكِ الوطني لدعم السعودية الخضراء (+15 نقطة)!', 'success');
+        });
+      });
+
+      // ---------------------------------------------------------------------
+      // 7. STATION 5: DIFFERENTIATED LEARNING (CONCEPT MAP, WATER EXP, COMPARE)
+      // ---------------------------------------------------------------------
+      document.querySelectorAll('.diff-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-diff');
+          document.querySelectorAll('.diff-panel').forEach(p => p.classList.add('hidden'));
+          document.getElementById(`diff-panel-${key}`).classList.remove('hidden');
+
+          document.querySelectorAll('.diff-tab-btn').forEach(b => {
+            b.className = 'diff-tab-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-slate-700 hover:border-eco-400 font-extrabold text-xs sm:text-sm flex flex-col items-center gap-1.5 transition';
+          });
+          btn.className = 'diff-tab-btn p-3.5 rounded-2xl border-2 border-eco-500 bg-eco-50 text-eco-800 font-extrabold text-xs sm:text-sm flex flex-col items-center gap-1.5 transition shadow-xs';
+        });
+      });
+
+      // 5A: Concept Map Builder (9 cards)
+      const mapCardsData = [
+        { id: 'mc-1', text: '☀️ الطاقة الشمسية', branch: 'energy' },
+        { id: 'mc-2', text: '💧 طاقة السدود', branch: 'energy' },
+        { id: 'mc-3', text: '🌋 الحرارة الجوفية', branch: 'energy' },
+        { id: 'mc-4', text: '📉 الترشيد (Reduce)', branch: 'waste' },
+        { id: 'mc-5', text: '🎨 إعادة الاستخدام (Reuse)', branch: 'waste' },
+        { id: 'mc-6', text: '♻️ التدوير (Recycle)', branch: 'waste' },
+        { id: 'mc-7', text: '🪨 الرمل والحصى', branch: 'water' },
+        { id: 'mc-8', text: '🔬 الفلترة الدقيقة', branch: 'water' },
+        { id: 'mc-9', text: '🧪 التعقيم بالكلور', branch: 'water' }
+      ];
+
+      function renderConceptMap() {
+        const bank = document.getElementById('map-cards-bank');
+        bank.innerHTML = '';
+        state.mapScore = 0;
+        state.selectedMapCard = null;
+        document.getElementById('map-score').textContent = '0 / 9';
+        document.getElementById('concept-map-tree').classList.remove('ring-4', 'ring-eco-400');
+
+        document.querySelectorAll('.map-slot').forEach(slot => {
+          slot.removeAttribute('data-filled');
+          const b = slot.getAttribute('data-branch');
+          if (b === 'energy') {
+            slot.className = 'map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-amber-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2';
+            slot.textContent = '+ بطاقة طاقة بديلة';
+          } else if (b === 'waste') {
+            slot.className = 'map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-eco-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2';
+            slot.textContent = '+ قاعدة إدارة نفايات';
+          } else {
+            slot.className = 'map-slot interactive-card min-h-[42px] rounded-xl border-2 border-dashed border-skyclean-400 bg-white flex items-center justify-center text-xs font-bold text-slate-400 cursor-pointer p-2';
+            slot.textContent = '+ خطوة تنقية ماء';
+          }
+        });
+
+        [...mapCardsData].sort(() => Math.random() - 0.5).forEach(card => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.id = card.id;
+          btn.draggable = true;
+          btn.setAttribute('data-branch', card.branch);
+          btn.className = 'map-card interactive-card px-3.5 py-2 rounded-xl bg-gradient-to-l from-skyclean-100 to-eco-100 border border-skyclean-300 text-xs sm:text-sm font-extrabold text-slate-800 shadow-2xs';
+          btn.textContent = card.text;
+
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.map-card').forEach(c => c.classList.remove('ring-4', 'ring-skyclean-500'));
+            state.selectedMapCard = btn;
+            btn.classList.add('ring-4', 'ring-skyclean-500');
+            showToast('الآن انقري على الخانة الفارغة المناسبة في شجرة المفاهيم!', 'info');
+          });
+
+          btn.addEventListener('dragstart', (e) => e.dataTransfer.setData('text/plain', card.id));
+          bank.appendChild(btn);
+        });
+      }
+
+      function handleMapPlacement(cardEl, slotEl) {
+        if (!cardEl || !slotEl) return;
+        if (slotEl.getAttribute('data-filled') === 'true') {
+          showToast('هذه الخانة ممتلئة بالفعل! اختاري خانة فارغة.', 'warn');
+          return;
+        }
+        if (cardEl.getAttribute('data-branch') === slotEl.getAttribute('data-branch')) {
+          slotEl.setAttribute('data-filled', 'true');
+          slotEl.className = 'map-slot min-h-[42px] rounded-xl border-2 border-eco-500 bg-eco-50 flex items-center justify-center text-xs sm:text-sm font-extrabold text-eco-900 p-2 shadow-2xs animate-pop';
+          slotEl.textContent = cardEl.textContent;
+          cardEl.remove();
+          state.selectedMapCard = null;
+
+          state.mapScore++;
+          document.getElementById('map-score').textContent = `${state.mapScore} / 9`;
+          addPoints(5);
+
+          if (state.mapScore === 9) {
+            document.getElementById('concept-map-tree').classList.add('ring-4', 'ring-eco-400');
+            addPoints(25, 'map');
+            showToast('أبدعتِ! أضاءت خريطة المفاهيم بالكامل ونلتِ وسام مصممة الخريطة 🗺️', 'success');
+          }
+        } else {
+          cardEl.classList.remove('ring-4', 'ring-skyclean-500');
+          state.selectedMapCard = null;
+          showToast('فكّري قليلاً! هذا المفهوم يتبع فرعاً آخر في الخريطة.', 'warn');
+        }
+      }
+
+      document.querySelectorAll('.map-slot').forEach(slot => {
+        slot.addEventListener('click', () => {
+          if (state.selectedMapCard) handleMapPlacement(state.selectedMapCard, slot);
+        });
+        slot.addEventListener('dragover', (e) => e.preventDefault());
+        slot.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const id = e.dataTransfer.getData('text/plain');
+          handleMapPlacement(document.getElementById(id), slot);
+        });
+      });
+
+      document.getElementById('btn-reset-map').addEventListener('click', renderConceptMap);
+
+      // 5B: Kinesthetic Water Experiment Observation
+      document.getElementById('btn-save-water-obs').addEventListener('click', () => {
+        const obs = document.getElementById('water-obs-input').value.trim();
+        if (obs.length < 3) {
+          showToast('اكتبي ملاحظتكِ العلمية أولاً حول سرعة دوران المروحة!', 'warn');
+          return;
+        }
+        const fb = document.getElementById('water-obs-feedback');
+        fb.classList.remove('hidden');
+        fb.textContent = `✅ تم توثيق ملاحظتكِ: "${obs}" — استنتاج صحيح: كلما زادت قوة اندفاع الماء زادت سرعة دوران التوربين!`;
+        addPoints(15);
+        showToast('أحسنتِ يا عالمة التجارب! تم توثيق ملاحظتكِ (+15 نقطة).', 'success');
+      });
+
+      // 5C: Support Visual Hints Button
+      document.getElementById('btn-reveal-hints').addEventListener('click', () => {
+        const grid = document.getElementById('visual-hints-grid');
+        grid.classList.add('ring-4', 'ring-amber-400', 'rounded-2xl', 'p-2');
+        showToast('تأملي البطاقات المصورة الثلاث؛ كل صورة تلخص فكرة الدرس بسهولة!', 'info');
+      });
+
+      // 5D: Enrichment Comparison Lab with Smart Helper Cards
+      const compareCardsData = [
+        { id: 'cc-1', tag: 'الانبعاثات', text: 'يُصدر غازات تلوث الهواء عند حرقه', target: 'fossil' },
+        { id: 'cc-2', tag: 'الانبعاثات', text: 'نظيفة تماماً وصفر انبعاثات كربونية', target: 'renewable' },
+        { id: 'cc-3', tag: 'التجدد', text: 'مورد غير متجدد قابل للنفاذ مستقبلاً', target: 'fossil' },
+        { id: 'cc-4', tag: 'التجدد', text: 'مصادر دائمة ومتجددة لا تنفد بإذن الله', target: 'renewable' },
+        { id: 'cc-5', tag: 'مناخ المملكة', text: 'تتوفر الشمس بسطوع عالٍ طوال العام في المملكة', target: 'renewable' },
+        { id: 'cc-6', tag: 'الاستدامة', text: 'حرقها المستمر يرفع حرارة الأرض', target: 'fossil' }
+      ];
+
+      function renderComparisonLab() {
+        const pool = document.getElementById('compare-cards-pool');
+        pool.innerHTML = '';
+        state.compareScore = 0;
+        state.fossilCount = 0;
+        state.renewableCount = 0;
+        state.selectedCompareCard = null;
+        document.getElementById('fossil-count').textContent = '0 / 3';
+        document.getElementById('renewable-count').textContent = '0 / 3';
+        document.getElementById('compare-list-fossil').innerHTML = '';
+        document.getElementById('compare-list-renewable').innerHTML = '';
+        document.getElementById('enrichment-feedback').classList.add('hidden');
+
+        [...compareCardsData].sort(() => Math.random() - 0.5).forEach(card => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.id = card.id;
+          btn.draggable = true;
+          btn.setAttribute('data-target', card.target);
+          btn.className = 'compare-card interactive-card p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 border border-purple-300 text-xs font-bold text-slate-800 text-right';
+          btn.innerHTML = `<span class="inline-block bg-purple-600 text-white text-[10px] px-2 py-0.5 rounded-full ml-1">${card.tag}</span>${card.text}`;
+
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.compare-card').forEach(c => c.classList.remove('ring-4', 'ring-purple-500'));
+            state.selectedCompareCard = btn;
+            btn.classList.add('ring-4', 'ring-purple-500');
+            showToast('انقري الآن على عمود (الوقود الأحفوري) أو (الطاقة الشمسية والسدود)!', 'info');
+          });
+
+          btn.addEventListener('dragstart', (e) => e.dataTransfer.setData('text/plain', card.id));
+          pool.appendChild(btn);
+        });
+      }
+
+      function handleCompareDrop(cardEl, colType) {
+        if (!cardEl) return;
+        if (cardEl.getAttribute('data-target') === colType) {
+          const itemBox = document.createElement('div');
+          itemBox.className = 'p-2.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-2xs animate-pop';
+          itemBox.innerHTML = cardEl.innerHTML;
+          document.getElementById(`compare-list-${colType}`).appendChild(itemBox);
+
+          cardEl.remove();
+          state.selectedCompareCard = null;
+          state.compareScore++;
+
+          if (colType === 'fossil') {
+            state.fossilCount++;
+            document.getElementById('fossil-count').textContent = `${state.fossilCount} / 3`;
+          } else {
+            state.renewableCount++;
+            document.getElementById('renewable-count').textContent = `${state.renewableCount} / 3`;
+          }
+          addPoints(5);
+          showToast('تصنيف دقيق في جدول المقارنة! (+5 نقاط)', 'success');
+        } else {
+          cardEl.classList.remove('ring-4', 'ring-purple-500');
+          state.selectedCompareCard = null;
+          showToast('راجعي المعيار المكتوب على البطاقة وحاولي وضعها في العمود الصحيح!', 'warn');
+        }
+      }
+
+      document.querySelectorAll('.compare-col').forEach(col => {
+        const colType = col.getAttribute('data-compare-col');
+        col.addEventListener('click', () => {
+          if (state.selectedCompareCard) handleCompareDrop(state.selectedCompareCard, colType);
+        });
+        col.addEventListener('dragover', (e) => e.preventDefault());
+        col.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const id = e.dataTransfer.getData('text/plain');
+          handleCompareDrop(document.getElementById(id), colType);
+        });
+      });
+
+      document.querySelectorAll('.conc-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isCorrect = btn.getAttribute('data-conc') === 'true';
+          const fb = document.getElementById('enrichment-feedback');
+          fb.classList.remove('hidden', 'bg-eco-100', 'text-eco-900', 'bg-rose-100', 'text-rose-900');
+          if (isCorrect) {
+            fb.classList.add('bg-eco-100', 'text-eco-900');
+            fb.textContent = '🌟 استنتاج علمي متميز! الطاقة الشمسية وطاقة السدود هما مستقبل الاستدامة في المملكة.';
+            addPoints(25, 'compare');
+            showToast('تهانينا! نلتِ وسام عالمة المقارنة 🔬', 'success');
+          } else {
+            fb.classList.add('bg-rose-100', 'text-rose-900');
+            fb.textContent = '❌ راجعي خصائص الجدول أعلاه؛ الفحم مورد غير متجدد ويلوث الهواء.';
+          }
+        });
+      });
+
+      document.getElementById('btn-reset-compare').addEventListener('click', renderComparisonLab);
+
+      // ---------------------------------------------------------------------
+      // 8. STATION 6: CERTIFICATE CLAIM & PRINT
+      // ---------------------------------------------------------------------
+      document.getElementById('btn-claim-cert').addEventListener('click', () => {
+        const nameVal = document.getElementById('cert-student-name').value.trim();
+        if (!nameVal) {
+          showToast('فضلاً اكتبي اسمكِ الثلاثي في الشهادة أولاً!', 'warn');
+          document.getElementById('cert-student-name').focus();
+          return;
+        }
+        [1, 2, 3, 4, 5, 6].forEach(n => {
+          state.completedStations.add(n);
+          const check = document.getElementById(`check-${n}`);
+          if (check) check.classList.remove('hidden');
+        });
+        updateProgress();
+        showToast(`مبارك يا ${nameVal}! تم اعتماد شهادتكِ بنجاح 🎓`, 'success');
+      });
+
+      document.getElementById('btn-print-cert').addEventListener('click', () => {
+        window.print();
+      });
+
+      // Initialize all interactive games on load
+      renderGuardianGame();
+      renderMCQs();
+      renderConceptMap();
+      renderComparisonLab();
+    });
+  </script>
+</body>
+</html>
